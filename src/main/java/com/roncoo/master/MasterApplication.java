@@ -8,11 +8,12 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
 public class MasterApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(MasterApplication.class, args);
         TestRedis testRedis = configurableApplicationContext.getBean(TestRedis.class);
-        testRedis.test();
+//        testRedis.test();
+        testRedis.testPubSub();
         configurableApplicationContext.close();
     }
 
