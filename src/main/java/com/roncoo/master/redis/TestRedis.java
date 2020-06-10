@@ -28,7 +28,7 @@ public class TestRedis {
     @Autowired
     private RedisTemplate redisTemplate;
 
-    @Autowired
+    @Autowired(required = false)
     @Qualifier("customStringRedisTemplate")
     private StringRedisTemplate stringRedisTemplate;
 

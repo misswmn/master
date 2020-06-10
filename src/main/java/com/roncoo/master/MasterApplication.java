@@ -1,5 +1,6 @@
 package com.roncoo.master;
 
+import com.roncoo.master.es.ElasticsearchTest;
 import com.roncoo.master.redis.TestRedis;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,10 +12,15 @@ public class MasterApplication {
     public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext configurableApplicationContext =
                 SpringApplication.run(MasterApplication.class, args);
-        TestRedis testRedis = configurableApplicationContext.getBean(TestRedis.class);
-//        testRedis.test();
-        testRedis.testPubSub();
-        configurableApplicationContext.close();
+//        TestRedis testRedis = configurableApplicationContext.getBean(TestRedis.class);
+////        testRedis.test();
+//        testRedis.testPubSub();
+//        configurableApplicationContext.close();
+
+//        SpringApplication.run(MasterApplication.class, args);
+
+        ElasticsearchTest elasticsearchTest = configurableApplicationContext.getBean(ElasticsearchTest.class);
+        elasticsearchTest.test();
     }
 
 }
